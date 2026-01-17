@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Bro 🎉</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #1f1f1f, #434343);
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+    }
+
+    .card {
+      background: rgba(0,0,0,0.6);
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      max-width: 420px;
+    }
+
+    h1 {
+      color: #00d4ff;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 30px;
+      background: #00d4ff;
+      color: #000;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: #00b5d8;
+    }
+
+    .message {
+      display: none;
+      margin-top: 25px;
+      font-size: 18px;
+      line-height: 1.6;
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>🎉 Happy Birthday พี่โร 🎉</h1>
+    <p>ถึงพี่ชายคนเก่งของเราชาว SK</p>
+
+    <button onclick="showMessage()">กดดูข้อความ</button>
+    <button onclick="toggleMusic()" id="musicBtn">▶ เปิดเพลง</button>
+
+    <div class="message" id="msg">
+      สุขสันต์วันเกิดนะพี่ 🎂<br>
+      ขอให้สุขภาพแข็งแรง งานสำเร็จ เงินไหลมา 💪💸<br>
+      ขอบคุณที่เป็นพี่ชายที่คอยดูแลเสมอ<br>
+      อยู่ไปนาน ๆ นะ 😄
+    </div>
+  </div>
+
+  <!-- เพลง -->
+  <audio id="bgMusic" loop>
+    <source src="test01.mp4" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function showMessage() {
+      document.getElementById("msg").style.display = "block";
+    }
+
+    const music = document.getElementById("bgMusic");
+    const btn = document.getElementById("musicBtn");
+
+    function toggleMusic() {
+      if (music.paused) {
+        music.play();
+        btn.innerText = "⏸ ปิดเพลง";
+      } else {
+        music.pause();
+        btn.innerText = "▶ เปิดเพลง";
+      }
+    }
+  </script>
+
+</body>
+</html>
